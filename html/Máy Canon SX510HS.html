@@ -1,0 +1,675 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="../css/bootstrap.min.css" />
+    <script type="text/javascript" src="../js/jquery-3.6.0.min.js"></script>
+    <script type="text/javascript" src="../js/bootstrap.min.js"></script>
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.0/css/all.css" />
+    <link rel="stylesheet" href="../css/all.css" />
+    <script src="../js/dangky.js"></script>
+    <link rel="stylesheet" href="../css/thongtin.css" />
+    <title>Máy Canon SX510HS </title>
+    <style>
+    .img1{
+        width: 50px;
+        height: 50px;
+        float: left;
+        margin-left:0%;
+    }
+      #head h1 p{
+        float: right;
+        margin-left: 100px; 
+      }
+    .menuphai{
+      float: right ;
+    }
+    </style>
+</head>
+ <body class="tong" >
+  <div class="header" style="background-color: #cfcbcb;">
+    <div class="container-fluid">
+        <div class="row" style="background-color: #414545;">
+            <div id="nav" class="col-sm-6">
+                <ul>
+                  <li><img src="../img/Black White Illustrative Modern Camera Studio Icon Logo.png" alt="" height="40px" width="40px"></li>
+                    <li>
+                        <a href="../html/index.html" style="margin-left: 150px">TRANG CHỦ</a
+              >
+            </li>
+            <li>
+              <a href="../html/gioithieu.html">GIỚI THIỆU</a>
+                    </li>
+                    <li class="dropdown">
+                        <a class="dropdown-toggle" data-toggle="dropdown" href="#">SẢN PHẨM<span class="caret"></span
+              ></a>
+                        <ul class="dropdown-menu">
+                            <li><a href="../html/maykithuatso.html">Máy Kĩ Thuật Số</a></li>
+                            <li><a href="../html/mayfim.html">Máy fim</a></li>
+                            <li><a href="../html/mayanhchuplayngay.html">Máy Ảnh Chụp Lấy Ngay</a></li>
+                        </ul>
+                    </li>
+                    <li>
+                        <a href="../html/contact.html">LIÊN HỆ</a>
+                    </li>
+                </ul>
+            </div>
+            <div id="nav1" class="col-sm-4">
+                <input type="text" class="form-control" placeholder="Search........................." />
+                <a href="#"><i class="fas fa-search"></i></a>
+            </div>
+            <div id="nav3" class="col-sm-2">
+                <a href="#"><i class="fas fa-shopping-cart" style="color: #c4b22a" onclick="Giohang()" data-toggle="modal" data-target="#cartModal">Giỏ hàng</i
+                    ></a>
+    <a href="#" data-toggle="modal" data-target="#registerModal">Register</a>
+              <a href="#" data-toggle="modal" data-target="#loginModal">Login</a>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- Register Modal -->
+      <div class="modal fade" id="registerModal" tabindex="-1" role="dialog" aria-labelledby="registerModalLabel" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title" id="registerModalLabel" style="color: #c4b22a">Đăng Ký Tài Khoản</h5>
+              <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+            </div>
+            <div class="modal-body">
+              <form>
+                <div class="form-group">
+                  <label for="username">Tên người dùng:</label>
+                  <input type="text" class="form-control" id="username" placeholder="Nhập tên người dùng">
+                </div>
+                <div class="form-group">
+                  <label for="email">Email:</label>
+                  <input type="email" class="form-control" id="email" placeholder="Email">
+                </div>
+                <div class="form-group">
+                  <label for="password">Mật khẩu:</label>
+                  <input type="password" class="form-control" id="password" placeholder="Nhập mật khẩu">
+                </div>
+              </form>
+            </div>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-primary" onclick="register()">Đăng Ký</button>
+              <button type="button" class="btn btn-secondary" data-dismiss="modal">Đóng</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    
+      <!-- Login Modal -->
+      <div class="modal fade" id="loginModal" tabindex="-1" role="dialog" aria-labelledby="loginModalLabel" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title" id="loginModalLabel" style="color: #c4b22a">Đăng Nhập</h5>
+              <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+            </div>
+            <div class="modal-body">
+              <form>
+                <div class="form-group">
+                  <label for="login-username">Tên đăng nhập:</label>
+                  <input type="text" class="form-control" id="login-username" placeholder="Nhập tên người dùng">
+                </div>
+                <div class="form-group">
+                  <label for="login-password">Mật khẩu:</label>
+                  <input type="password" class="form-control" id="login-password" placeholder="Nhập mật khẩu">
+                </div>
+              </form>
+            </div>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-primary" onclick="login()">Đăng Nhập</button>
+              <button type="button" class="btn btn-secondary" data-dismiss="modal">Đóng</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    
+      <!-- JavaScript for Cart, Registration, and Login -->
+      <script>
+        // Display Cart Items in Cart Modal
+        function displayCart() {
+          const cartItemsContainer = document.getElementById('cartItems');
+          const cartTotalElement = document.getElementById('cartTotal');
+          const cart = JSON.parse(localStorage.getItem('cart')) || [];
+          
+          if (cart.length === 0) {
+            cartItemsContainer.innerHTML = 'Your cart is empty.';
+            cartTotalElement.innerHTML = 'Tổng: 0 VND';
+            return;
+          }
+    
+          let total = 0;
+          cartItemsContainer.innerHTML = '';
+          cart.forEach(item => {
+            total += item.price * item.quantity;
+            cartItemsContainer.innerHTML += `<p><strong>${item.name}</strong>: ${item.quantity} x ${item.price} VND</p>`;
+          });
+    
+          cartTotalElement.innerHTML = `Tổng: ${total} VND`;
+        }
+    
+        // Register function
+        function register() {
+          const username = document.getElementById('username').value;
+          const email = document.getElementById('email').value;
+          const password = document.getElementById('password').value;
+          
+          if (username && email && password) {
+            localStorage.setItem('user', JSON.stringify({ username, email, password }));
+            alert('Đăng ký thành công!');
+            $('#registerModal').modal('hide');
+            window.location.href = "../html/index.html";
+          } else {
+            alert('Vui lòng nhập đầy đủ thông tin.');
+          }
+        }
+    
+        // Login function
+        function login() {
+          const loginUsername = document.getElementById('login-username').value;
+          const loginPassword = document.getElementById('login-password').value;
+          const registeredUser = JSON.parse(localStorage.getItem('user'));
+    
+          if (registeredUser && registeredUser.username === loginUsername && registeredUser.password === loginPassword) {
+            alert('Đăng nhập thành công!');
+            $('#loginModal').modal('hide');
+            window.location.href = "../html/index.html";
+          } else {
+            alert('Sai tên đăng nhập hoặc mật khẩu.');
+          }
+        }
+      </script>
+      <!-- Cart Modal -->
+<div class="modal fade" id="cartModal" tabindex="-1" role="dialog" aria-labelledby="cartModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+      <div class="modal-content">
+          <div class="modal-header">
+              <h5 class="modal-title" id="cartModalLabel">Giỏ hàng của bạn</h5>
+              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                  <span aria-hidden="true">&times;</span>
+              </button>
+          </div>
+          <div class="modal-body">
+              <ul id="cartItems" class="list-group">
+                  <!-- Cart items will be added here dynamically -->
+              </ul>
+          </div>
+          <div class="modal-footer">
+              <button type="button" class="btn btn-secondary" data-dismiss="modal">Đóng</button>
+              <button type="button" class="btn btn-primary">Thanh toán</button>
+          </div>
+      </div>
+  </div>
+</div>
+
+<!-- JavaScript -->
+<script>
+// Initialize cart from localStorage or create an empty one
+let cart = JSON.parse(localStorage.getItem('cart')) || [];
+
+// Function to update the cart modal with current items
+function updateCartModal() {
+  const cartItemsList = document.getElementById('cartItems');
+  cartItemsList.innerHTML = ''; // Clear previous items
+
+  // Add each item in the cart to the modal list
+  cart.forEach((item, index) => {
+      const listItem = document.createElement('li');
+      listItem.className = 'list-group-item d-flex justify-content-between align-items-center';
+      listItem.innerHTML = `
+          ${item.name} - ${item.price.toLocaleString()} VND x ${item.quantity}
+          <button class="btn btn-danger btn-sm" onclick="removeFromCart(${index})">Xóa</button>
+      `;
+      cartItemsList.appendChild(listItem);
+  });
+}
+
+// Function to add an item to the cart
+function themVaoGioHang() {
+  const productName = "Máy Canon SX510HS";
+  const productPrice = 8500000;
+  const quantity = parseInt(document.getElementById('soluong').value);
+
+  // Check if the item already exists in the cart
+  const existingItem = cart.find(item => item.name === productName);
+  if (existingItem) {
+      existingItem.quantity += quantity;
+  } else {
+      // Add new item to the cart
+      cart.push({ name: productName, price: productPrice, quantity: quantity });
+  }
+
+  // Save cart to localStorage
+  localStorage.setItem('cart', JSON.stringify(cart));
+
+  // Update the cart modal
+  updateCartModal();
+}
+
+// Function to remove an item from the cart
+function removeFromCart(index) {
+  cart.splice(index, 1);
+  localStorage.setItem('cart', JSON.stringify(cart));
+  updateCartModal();
+}
+
+// Update the cart modal with current items when the page loads
+document.addEventListener('DOMContentLoaded', updateCartModal);
+</script>
+
+    <!-- sản phẩm -->
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-7">
+                <img src="../img/kts2.jpg" alt="MayCanon" width="620px" height="380px" />
+            </div>
+            <div class="col-sm-5">
+                <h2 style="font-size: 50px;">Máy Canon SX510HS</h2> <br>
+                <a href="#">★★★★☆</a> | 2,5k &nbsp Đã bán
+                <p style="font-size: 25px;margin-bottom: -5px;margin-top: 10px;font-weight: bold;">Giá: 8.500.000 VND</p>
+                <p style="text-decoration: line-through; color: #9f9d9d">
+                    10.000.000 VND
+                </p>
+                <p>Khối lượng: 500g</p>
+                <label for="soluong" style="font-weight: normal;">Số lượng: </label> <br />
+                <input type="number" min="1" id="soluong" value="1" class="form-control" style="width: 50px;" />
+                <p style="position: relative;left: 60px;top:-29px;margin-bottom: -8px;color: #7a7979;">129 sản phẩm có sẵn</p>
+                <p>Vận chuyển:&nbsp <i class="fas fa-truck" style="color: #c4b22a;margin-bottom: 11px;"></i>&nbsp Miễn phí vận chuyển</p>
+
+                            <!-- Add to Cart and Buy Now Buttons -->
+            <button onclick="themVaoGioHang()" data-toggle="modal" data-target="#cartModal">
+                Thêm vào giỏ hàng
+            </button>
+            <button data-toggle="modal" data-target="#buyModal">Mua ngay</button>
+        </div>
+    </div>
+</div>
+
+<!-- Cart Modal -->
+<div class="modal fade" id="cartModal" tabindex="-1" role="dialog" aria-labelledby="cartModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="cartModalLabel">Giỏ hàng của bạn</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <ul id="cartItems" class="list-group">
+                    <!-- Cart items will be added here dynamically -->
+                </ul>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Đóng</button>
+                <button type="button" class="btn btn-primary">Thanh toán</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- JavaScript -->
+<script>
+// Initialize cart from localStorage or create an empty one
+let car = JSON.parse(localStorage.getItem('cart')) || [];
+
+// Function to update the cart modal with current items
+function updateCartModal() {
+    const cartItemsList = document.getElementById('cartItems');
+    cartItemsList.innerHTML = ''; // Clear previous items
+
+    // Add each item in the cart to the modal list
+    cart.forEach((item, index) => {
+        const listItem = document.createElement('li');
+        listItem.className = 'list-group-item d-flex justify-content-between align-items-center';
+        listItem.innerHTML = `
+            ${item.name} - ${item.price.toLocaleString()} VND x ${item.quantity}
+            <button class="btn btn-danger btn-sm" onclick="removeFromCart(${index})">Xóa</button>
+        `;
+        cartItemsList.appendChild(listItem);
+    });
+}
+
+// Function to add an item to the cart
+function themVaoGioHang() {
+    const productName = "Máy Canon SX510HS";
+    const productPrice = 85000000;
+    const quantity = parseInt(document.getElementById('soluong').value);
+
+    // Check if the item already exists in the cart
+    const existingItem = cart.find(item => item.name === productName);
+    if (existingItem) {
+        existingItem.quantity += quantity;
+    } else {
+        // Add new item to the cart
+        cart.push({ name: productName, price: productPrice, quantity: quantity });
+    }
+
+    // Save cart to localStorage
+    localStorage.setItem('cart', JSON.stringify(cart));
+
+    // Update the cart modal
+    updateCartModal();
+}
+
+// Function to remove an item from the cart
+function removeFromCart(index) {
+    cart.splice(index, 1);
+    localStorage.setItem('cart', JSON.stringify(cart));
+    updateCartModal();
+}
+
+// Update the cart modal with current items when the page loads
+document.addEventListener('DOMContentLoaded', updateCartModal);
+</script>
+            </div>
+        </div>
+        <div class="row" style="margin-top: 25px;">
+            <div class="col-sm-7" style="line-height: 25px;">
+                <p>
+                    &nbsp &nbsp &nbsp &nbsp Máy kĩ thuật số X-AS là một sản phẩm chất lượng cao, giá cả hợp lý phù hợp với người mới tập sử dụng máy ảnh
+                </p>
+                <h3 class="h4" style="padding: 0px ;background-color:#efefef; margin-left: -15px;padding: 10px;border-radius: 5px;">ƯU ĐIỂM SẢN PHẨM</h3>
+                <ul>
+                    <li>Chất lượng cao, dễ sử dụng</li>
+                    <li>Đóng gói cẩn thận để đảm bảo máy ảnh đến tay người dùng nguyên vẹn.</li>
+                    <li>Giá cả hợp lý.</li>
+                </ul>
+            </div>
+            <div class="col-sm-5">
+                <ul style="margin-left: -41px;list-style-type: none;text-align: justify;">
+                    <hr style="border-color:grey;">
+                    <li>
+                        <p>
+                            "CameraStore" cam kết bán hàng uy tín chính hãng
+                            <hr style="border-color:grey;">
+                        </p>
+                    </li>
+                    <li>
+                        <p>
+                            Tất cả sản phẩm máy ảnh của "Camera Store" đều đạt chuẩn an toàn cho sức khỏe người dùng.
+                        </p>
+                    </li>
+                </ul>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-sm-12">
+                <h3 class="h4" style="padding: 0px ;background-color:#efefef; margin-left: -15px;padding: 10px;border-radius: 5px;">CHI TIẾT SẢN PHẨM</h3>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-sm-7">
+                <table>
+                    <tr>
+                        <td style="color: black;">Danh mục</td>
+                        <td>
+                            <a href="../index.html">Trang Chủ</a> >
+                            <a href="../html/maykithuatso.html">Máy ảnh kĩ thuật số</a> >
+                            <a href="../html/maykithuatsoX-AS.html">Máy kĩ thuật số X-AS</a>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td style="color:black;">Thương hiệu</td>
+                        <td><a href="../../index.html">Camera Store</a></td>
+                    </tr>
+                    <tr>
+                        <td style="color: black;">Kích thước</td>
+                        <td>10x6 cm</td>
+                    </tr>
+                    <tr>
+                        <td style="color:black;">Xuất xứ</td>
+                        <td>Hàn Quốc</td>
+                    </tr>
+                    <tr>
+                        <td style="color:black;">Loại</td>
+                        <td>Máy ảnh kĩ thuật số X-AS</td>
+                    </tr>
+                    <tr>
+                        <td style="color: black;">Kho hàng</td>
+                        <td>229</td>
+                    </tr>
+                    <tr>
+                        <td style="color:black;">Gửi từ</td>
+                        <td>TP.Hồ Chí Minh</td>
+                    </tr>
+                </table>
+            </div>
+            <div class="col-sm-5">
+                <img src="../img/kts2.jpg" alt="X-AS" width="440px" style="margin-top: 25px;">
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-sm-12">
+                <h3 class="h4" style="padding: 0px ;background-color:#efefef; margin-left: -15px;padding: 10px;border-radius: 5px;">MÔ TẢ SẢN PHẨM</h3>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-sm-12" id="mota">
+                <p>Máy thiết kế gọn nhẹ, phù hợp cho tất cả mọi người nam và nữ. <br> Dễ dàng sử dụng  .</p>
+                <p>Thiết kế tiện lợi và an toàn có thể sử dụng hàng ngày. </p>
+                <h5>HƯỚNG DẪN SỬ DỤNG:</h5>
+                <p>- Mở máy căn góc chỉnh các thông số mình thích sau đó chụp hình  </p>
+                    <h5>CHÍNH SÁCH ĐỔI TRẢ:</h5>
+                    <p>Shop hỗ trợ đổi trả hoặc hoàn tiền 100% với các trường hợp thiếu hàng hay hàng bị hư hỏng do lỗi của Shop (trong vòng 7 ngày sau khi nhận hàng)</p>
+            </div>
+        </div>
+    </div>
+    <div class="container" id="container">
+        <div class="row">
+            <div class="col-sm-12">
+                <h2 style="padding: 10px 405px 10px 405px;background-color:#efefef;border-radius: 10px;">CÁC SẢN PHẨM KHÁC</h2> <br>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-sm-3">
+                <div class="product">
+                    <a href="../html/Máy Canon .html" class="img-container"><img src="../img/kts1.jpg" alt="Máy Canon" width="200px" height="160px" class="img" /></a><br /><br />
+                    <p style="font-size: 16px">
+                        <a href="../html/Máy Canon .html"> Máy Canon</a>
+                    </p>
+                    <p></p>
+                    <p style="color: #c4b22a;">Giá: 8.600.000 VND</p>
+                    <p style="
+                font-size: 13px;
+                text-decoration: line-through;
+                color: #9f9d9d;
+              ">
+                        9.500.000 VND
+                    </p>
+                    <!-- Cập nhật nút "Mua ngay" trong mỗi sản phẩm -->
+                    <button data-toggle="modal" data-target="#buyModal" data-unit-price="160000" data-product-name="Máy Canon" onclick="setProductInfo('Máy Canon', 8600000)">Mua ngay</button>
+                    <a href="#"><i class="fas fa-shopping-cart" style="color: #c4b22a" onclick="Giohang()" data-toggle="modal" data-target="#cartModal">Giỏ hàng</i
+                        ></a>
+                </div>
+            </div>
+            <div class="col-sm-3">
+                <div class="product">
+                    <a href="../html/Máy Canon S0.000X510HS.html" class="img-container"><img src="../img/kts2.jpg" alt="Máy Canon SX510HS" width="200px" height="160px" class="img" /></a><br /><br />
+                    <p style="font-size: 16px"><a href="../html/Máy Canon SX510HS.html">Máy Canon SX510HS</a></p>
+                    <p></p>
+                    <p style="color: #c4b22a;">Giá: 11.500.000 VND</p>
+                    <p style="
+                font-size: 13px;
+                text-decoration: line-through;
+                color: #9f9d9d;
+              ">
+                        13.000.000 VND
+                    </p>
+                    <!-- Cập nhật nút "Mua ngay" trong mỗi sản phẩm -->
+                    <button data-toggle="modal" data-target="#buyModal" data-unit-price="115000" data-product-name="Mít sấy khô (túi 1kg)" onclick="setProductInfo('Mít sấy khô (túi 1kg)', 115000)">Mua ngay</button>
+                    <a href="#"><i class="fas fa-shopping-cart" style="color: #c4b22a" onclick="Giohang()" data-toggle="modal" data-target="#cartModal">Giỏ hàng</i
+                        ></a>
+                </div>
+            </div>
+            <div class="col-sm-3">
+                <div class="product">
+                    <a href="../html/may SoNy CX37.html" class="img-container"><img src="../img/kts4.jpg" alt="Máy Canon" width="200px" height="160px" class="img" /></a><br /><br />
+                    <p style="font-size: 16px">
+                        <a href="../html/may SoNy CX37.html">Máy Canon</a>
+                    </p>
+                    <p></p>
+                    <p style="color: #c4b22a;">Giá: 8.700.000 VND</p>
+                    <p style="
+                font-size: 13px;
+                text-decoration: line-through;
+                color: #9f9d9d;
+              ">
+                        10.500.000 VND
+                    </p>
+                    <!-- Cập nhật nút "Mua ngay" trong mỗi sản phẩm -->
+                    <button data-toggle="modal" data-target="#buyModal" data-unit-price="150000" data-product-name="Máy Minolla" onclick="setProductInfo('Máy Minolla', 150000)">Mua ngay</button>
+                    <a href="#"><i class="fas fa-shopping-cart" style="color: #c4b22a" onclick="Giohang()" data-toggle="modal" data-target="#cartModal">Giỏ hàng</i
+                        ></a>
+                </div>
+            </div>
+            <div class="col-sm-3">
+                <div class="product">
+                    <a href="../html/Máy Minolla.html" class="img-container"><img src="../img/fim1.jpg" alt="Bếp điện từ" width="200px" height="160px" class="img" /></a><br /><br />
+                    <p style="font-size: 16px">
+                        <a href="../html/Máy Minolla.html">Máy Minolla</a>
+                    </p>
+                    <p></p>
+                    <p style="color: #c4b22a;">Giá: 14.000.000 VND</p>
+                    <p style="
+                font-size: 13px;
+                text-decoration: line-through;
+                color: #9f9d9d;
+              ">
+                        19.000.000 VND
+                    </p>
+                    <!-- Cập nhật nút "Mua ngay" trong mỗi sản phẩm -->
+                    <button data-toggle="modal" data-target="#buyModal" data-unit-price="14000000" data-product-name="Máy Minolla" onclick="setProductInfo('Máy Minolla', 14000000)">Mua ngay</button>
+                    <a href="#"><i class="fas fa-shopping-cart" style="color: #c4b22a" onclick="Giohang()" data-toggle="modal" data-target="#cartModal">Giỏ hàng</i
+                        ></a>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="modal fade" id="buyModal" tabindex="-1" role="dialog" aria-labelledby="buyModalLabel" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h3 id="buyModalLabel"></h3>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+            </button>
+                </div>
+                <div class="modal-body">
+                    <form>
+                        <div class="form-group">
+                            <label for="quantity">Số lượng:</label>
+                            <input type="number" class="form-control" id="quantity" placeholder="Nhập số lượng" />
+                        </div>
+                        <div class="form-group">
+                            <label for="unitPrice">Đơn giá:</label>
+                            <span id="unitPrice"></span>
+                        </div>
+                    </form>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">
+              Đóng
+            </button>
+                    <button type="button" class="btn btn-primary" id="confirmPurchase" onclick="confirmPurchase()">
+              Xác nhận mua
+            </button>
+                </div>
+            </div>
+        </div>
+        <!-- Thêm thông tin chi tiết khác về sản phẩm nếu cần -->
+        <!-- Modal mua sản phẩm, bạn có thể sử dụng modal đã có sẵn -->
+        <!-- Đoạn mã modal đã có sẵn ở trang gốc -->
+    </div>
+    </div>
+   <!-- footer -->
+   <div class="container-fluid">
+    <div class="row" style="height: 234px; background-color: #444">
+        <div id="sub1" class="col-sm-5">
+            <h1>ĐĂNG KÝ VỚI CHÚNG TÔI!</h1>
+            <p>
+                Nhập địa chỉ email của bạn vào danh sách gửi thư để chúng tôi để nhận tin tức mới nhất.
+            </p>
+        </div>
+        <div id="sub2" class="col-sm-4">
+            <input class="form-control" type="email" id="sub" placeholder="Nhập thông tin đăng kí" />
+        </div>
+        <div id="sub3" class="col-sm-3">
+            <button class="form-control" onclick="subcrise()">Đăng Ký Ngay </button>
+        </div>
+    </div>
+    <div class="row" style="padding-top: 30px; background-color: #333; color: #cfcbcb">
+        <div id="lastF1" class="col-sm-4">
+            <h4>Đăng Kí</h4>
+            <p>
+
+                Cửa hàng chuyên cung cấp những sản phẩm máy ảnh xịn sò, xinh xắn và đa dạng.Với nhiwwuf phân khúc giá cả vừa  đảm bảo chất lượng và hài lòng nhất cho khách hàng.
+            </p>
+        </div>
+        <div id="lastF2" class="col-sm-3">
+            <h4>Liên Hệ </h4>
+            <i class="fas fa-map-marker-alt"></i>
+            <p style="position: relative; left: 25px; top: -24px">
+                Quang Trung, Gò Vấp, Tp.Hồ Chí Minh
+            </p>
+            <i class="fas fa-phone" style="position: relative; top: -25px"></i>
+            <p style="position: relative; left: 25px; top: -44px">
+                (03) 58713373
+            </p>
+            <i class="fas fa-envelope" style="position: relative; top: -45px"></i>
+            <p style="position: relative; left: 25px; top: -66px">
+                web.Mayanhxin@gmail.com
+            </p>
+        </div>
+        <div id="lastF3" class="col-sm-2">
+            <h4>Sản Phẩm</h4>
+            <ul>
+                <li><a href="../../index.html">Trang chủ</a></li>
+                <li><a href="../html/gioithieu.html">Giới thệu</a></li>
+                <li><a href="../html/Cacloainoi.html">Sản phẩm</a></li>
+                <li><a href="../html/contact.html">Liên hệ</a></li>
+            </ul>
+        </div>
+        <div id="lastF4" class="col-sm-3">
+            <h4> Thời Gian </h4>
+            <p>THứ 2 đến Thứ 6:</p>
+            <p>08:00am - 20:00pm</p>
+            <p>THứ 7 và Chủ nhật:</p>
+            <p>10:00am - 16:00pm</p>
+        </div>
+    </div>
+    <div class="row">
+        <div id="foot" class="col-sm-12">
+            <p>&copy; 2024 Web Máy Ảnh Xịn Store</p>
+        </div>
+    </div>
+</div>
+    
+ 
+  <!-- Modal -->
+  <div class="modal fade" id="buyModal" tabindex="-1" role="dialog" aria-labelledby="buyModalLabel" aria-hidden="true">
+      <div class="modal-dialog" role="document">
+          <div class="modal-content">
+              <div class="modal-header">
+                  <h5 class="modal-title" id="buyModalLabel">Xác nhận đặt hàng</h5>
+                  <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+        <span aria-hidden="true">&times;</span>
+      </button>
+              </div>
+              <div class="modal-body">
+
+              </div>
+              <div class="modal-footer">
+                  <button type="button" class="btn btn-secondary" data-dismiss="modal">Hủy</button>
+                  <button type="button" class="btn btn-primary">Xác nhận mua hàng</button>
+              </div>
+          </div>
+      </div>
+  </div>
+
+</body>

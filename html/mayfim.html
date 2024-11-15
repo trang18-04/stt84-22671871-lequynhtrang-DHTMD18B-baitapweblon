@@ -1,0 +1,522 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="../css/bootstrap.min.css" />
+    <script type="text/javascript" src="../js/jquery-3.6.0.min.js"></script>
+    <script type="text/javascript" src="../js/bootstrap.min.js"></script>
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.0/css/all.css" />
+    <link rel="stylesheet" href="../css/all.css" />
+    <script src="../js/dangky.js"></script>
+    <link rel="stylesheet" href="../css/thongtin.css" />
+    <title>Máy film </title>
+    <style>
+    .img1{
+        width: 50px;
+        height: 50px;
+        float: left;
+        margin-left:0%;
+    }
+      #head h1 p{
+        float: right;
+        margin-left: 100px; 
+      }
+    .menuphai{
+      float: right ;
+    }
+    </style>
+</head>
+ <body class="tong" >
+  <div class="header" style="background-color: #cfcbcb;">
+    <div class="container-fluid">
+        <div class="row" style="background-color: #414545;">
+            <div id="nav" class="col-sm-6">
+                <ul>
+                  <li><img src="../img/Black White Illustrative Modern Camera Studio Icon Logo.png" alt="" height="40px" width="40px"></li>
+                    <li>
+                        <a href="../html/index.html" style="margin-left: 150px">TRANG CHỦ</a
+              >
+            </li>
+            <li>
+              <a href="../html/gioithieu.html">GIỚI THIỆU</a>
+                    </li>
+                    <li class="dropdown">
+                        <a class="dropdown-toggle" data-toggle="dropdown" href="#">SẢN PHẨM<span class="caret"></span
+              ></a>
+                        <ul class="dropdown-menu">
+                            <li><a href="../html/maykithuatso.html">Máy Kĩ Thuật Số</a></li>
+                            <li><a href="../html/mayfim.html">Máy fim</a></li>
+                            <li><a href="../html/mayanhchuplayngay.html">Máy Ảnh Chụp Lấy Ngay</a></li>
+                        </ul>
+                    </li>
+                    <li>
+                        <a href="../html/contact.html">LIÊN HỆ</a>
+                    </li>
+                </ul>
+            </div>
+            <div id="nav1" class="col-sm-4">
+                <input type="text" class="form-control" placeholder="Search........................." />
+                <a href="#"><i class="fas fa-search"></i></a>
+            </div>
+            <div id="nav3" class="col-sm-2">
+                <a href="#"><i class="fas fa-shopping-cart" style="color: #c4b22a" onclick="Giohang()" data-toggle="modal" data-target="#cartModal">Giỏ hàng</i
+                    ></a>
+    <a href="#" data-toggle="modal" data-target="#registerModal">Register</a>
+              <a href="#" data-toggle="modal" data-target="#loginModal">Login</a>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- Register Modal -->
+      <div class="modal fade" id="registerModal" tabindex="-1" role="dialog" aria-labelledby="registerModalLabel" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title" id="registerModalLabel" style="color: #c4b22a">Đăng Ký Tài Khoản</h5>
+              <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+            </div>
+            <div class="modal-body">
+              <form>
+                <div class="form-group">
+                  <label for="username">Tên người dùng:</label>
+                  <input type="text" class="form-control" id="username" placeholder="Nhập tên người dùng">
+                </div>
+                <div class="form-group">
+                  <label for="email">Email:</label>
+                  <input type="email" class="form-control" id="email" placeholder="Email">
+                </div>
+                <div class="form-group">
+                  <label for="password">Mật khẩu:</label>
+                  <input type="password" class="form-control" id="password" placeholder="Nhập mật khẩu">
+                </div>
+              </form>
+            </div>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-primary" onclick="register()">Đăng Ký</button>
+              <button type="button" class="btn btn-secondary" data-dismiss="modal">Đóng</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    
+      <!-- Login Modal -->
+      <div class="modal fade" id="loginModal" tabindex="-1" role="dialog" aria-labelledby="loginModalLabel" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title" id="loginModalLabel" style="color: #c4b22a">Đăng Nhập</h5>
+              <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+            </div>
+            <div class="modal-body">
+              <form>
+                <div class="form-group">
+                  <label for="login-username">Tên đăng nhập:</label>
+                  <input type="text" class="form-control" id="login-username" placeholder="Nhập tên người dùng">
+                </div>
+                <div class="form-group">
+                  <label for="login-password">Mật khẩu:</label>
+                  <input type="password" class="form-control" id="login-password" placeholder="Nhập mật khẩu">
+                </div>
+              </form>
+            </div>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-primary" onclick="login()">Đăng Nhập</button>
+              <button type="button" class="btn btn-secondary" data-dismiss="modal">Đóng</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    
+      <!-- JavaScript for Cart, Registration, and Login -->
+      <script>
+        // Display Cart Items in Cart Modal
+        function displayCart() {
+          const cartItemsContainer = document.getElementById('cartItems');
+          const cartTotalElement = document.getElementById('cartTotal');
+          const cart = JSON.parse(localStorage.getItem('cart')) || [];
+          
+          if (cart.length === 0) {
+            cartItemsContainer.innerHTML = 'Your cart is empty.';
+            cartTotalElement.innerHTML = 'Tổng: 0 VND';
+            return;
+          }
+    
+          let total = 0;
+          cartItemsContainer.innerHTML = '';
+          cart.forEach(item => {
+            total += item.price * item.quantity;
+            cartItemsContainer.innerHTML += `<p><strong>${item.name}</strong>: ${item.quantity} x ${item.price} VND</p>`;
+          });
+    
+          cartTotalElement.innerHTML = `Tổng: ${total} VND`;
+        }
+    
+        // Register function
+        function register() {
+          const username = document.getElementById('username').value;
+          const email = document.getElementById('email').value;
+          const password = document.getElementById('password').value;
+          
+          if (username && email && password) {
+            localStorage.setItem('user', JSON.stringify({ username, email, password }));
+            alert('Đăng ký thành công!');
+            $('#registerModal').modal('hide');
+            window.location.href = "../html/index.html";
+          } else {
+            alert('Vui lòng nhập đầy đủ thông tin.');
+          }
+        }
+    
+        // Login function
+        function login() {
+          const loginUsername = document.getElementById('login-username').value;
+          const loginPassword = document.getElementById('login-password').value;
+          const registeredUser = JSON.parse(localStorage.getItem('user'));
+    
+          if (registeredUser && registeredUser.username === loginUsername && registeredUser.password === loginPassword) {
+            alert('Đăng nhập thành công!');
+            $('#loginModal').modal('hide');
+            window.location.href = "../html/index.html";
+          } else {
+            alert('Sai tên đăng nhập hoặc mật khẩu.');
+          }
+        }
+      </script>
+      <!-- Cart Modal -->
+<div class="modal fade" id="cartModal" tabindex="-1" role="dialog" aria-labelledby="cartModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+      <div class="modal-content">
+          <div class="modal-header">
+              <h5 class="modal-title" id="cartModalLabel">Giỏ hàng của bạn</h5>
+              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                  <span aria-hidden="true">&times;</span>
+              </button>
+          </div>
+          <div class="modal-body">
+              <ul id="cartItems" class="list-group">
+                  <!-- Cart items will be added here dynamically -->
+              </ul>
+          </div>
+          <div class="modal-footer">
+              <button type="button" class="btn btn-secondary" data-dismiss="modal">Đóng</button>
+              <button type="button" class="btn btn-primary">Thanh toán</button>
+          </div>
+      </div>
+  </div>
+</div>
+
+<!-- JavaScript -->
+<script>
+// Initialize cart from localStorage or create an empty one
+let cart = JSON.parse(localStorage.getItem('cart')) || [];
+
+// Function to update the cart modal with current items
+function updateCartModal() {
+  const cartItemsList = document.getElementById('cartItems');
+  cartItemsList.innerHTML = ''; // Clear previous items
+
+  // Add each item in the cart to the modal list
+  cart.forEach((item, index) => {
+      const listItem = document.createElement('li');
+      listItem.className = 'list-group-item d-flex justify-content-between align-items-center';
+      listItem.innerHTML = `
+          ${item.name} - ${item.price.toLocaleString()} VND x ${item.quantity}
+          <button class="btn btn-danger btn-sm" onclick="removeFromCart(${index})">Xóa</button>
+      `;
+      cartItemsList.appendChild(listItem);
+  });
+}
+
+// Function to add an item to the cart
+function themVaoGioHang() {
+  const productName = "mayfim";
+  const productPrice = 6000000;
+  const quantity = parseInt(document.getElementById('soluong').value);
+
+  // Check if the item already exists in the cart
+  const existingItem = cart.find(item => item.name === productName);
+  if (existingItem) {
+      existingItem.quantity += quantity;
+  } else {
+      // Add new item to the cart
+      cart.push({ name: productName, price: productPrice, quantity: quantity });
+  }
+
+  // Save cart to localStorage
+  localStorage.setItem('cart', JSON.stringify(cart));
+
+  // Update the cart modal
+  updateCartModal();
+}
+
+// Function to remove an item from the cart
+function removeFromCart(index) {
+  cart.splice(index, 1);
+  localStorage.setItem('cart', JSON.stringify(cart));
+  updateCartModal();
+}
+
+// Update the cart modal with current items when the page loads
+document.addEventListener('DOMContentLoaded', updateCartModal);
+</script>
+
+    <!-- banner slide -->
+  <div class="container"> 
+    <div id="myCarousel" class="carousel slide" data-ride="carousel"> 
+     <ol class="carousel-indicators"> 
+      <li data-target="#myCarousel" data-slide-to="0" class=""></li> 
+      <li data-target="#myCarousel" data-slide-to="1" class="active"></li> 
+      <li data-target="#myCarousel" data-slide-to="2"></li> 
+     </ol> 
+     <div class="carousel-inner"> 
+      <div class="item active left"> <img src="../img/banner2.jpg" alt="Thiết kế 1" width="100%" height="100px"> 
+       <!-- <div class="carousel-caption" style="height: auto !important;"> 
+        <h1>Thiết kế 1</h1><div class="google-auto-placed ap_container" style="width: 100%; height: auto; clear: both; text-align: center;"><ins data-ad-format="auto" class="adsbygoogle adsbygoogle-noablate" data-ad-client="ca-pub-4302855514445303" data-adsbygoogle-status="done" style="display: block; margin: auto; background-color: transparent; height: 280px;" data-ad-status="filled"><div id="aswift_4_host" style="border: none; height: 280px; width: 684px; margin: 0px; padding: 0px; position: relative; visibility: visible; background-color: transparent; display: inline-block; overflow: visible;"><iframe id="aswift_4" name="aswift_4" browsingtopics="true" style="left:0;position:absolute;top:0;border:0;width:684px;height:280px;" sandbox="allow-forms allow-popups allow-popups-to-escape-sandbox allow-same-origin allow-scripts allow-top-navigation-by-user-activation" width="684" height="280" frameborder="0" marginwidth="0" marginheight="0" vspace="0" hspace="0" allowtransparency="true" scrolling="no" allow="attribution-reporting; run-ad-auction" src="https://googleads.g.doubleclick.net/pagead/ads?gdpr=0&us_privacy=1---&gpp_sid=-1&client=ca-pub-4302855514445303&output=html&h=280&adk=247568745&adf=1172030984&w=684&abgtt=3&fwrn=4&fwrnh=100&lmt=1730342265&num_ads=1&rafmt=1&armr=3&sem=mc&pwprc=7825186937&ad_type=text_image&format=684x280&url=https%3A%2F%2Fhocwebgiare.com%2Fblog-detail%2FBootstrap%2Fpost201%2FHuong-dan-cach-tao-Banner-Slideshow-cho-Website-bang-Bootstrap.html&fwr=0&pra=3&rh=171&rw=684&rpe=1&resp_fmts=3&wgl=1&fa=27&uach=WyJXaW5kb3dzIiwiMTUuMC4wIiwieDg2IiwiIiwiMTMwLjAuNjcyMy43MSIsbnVsbCwwLG51bGwsIjY0IixbWyJDaHJvbWl1bSIsIjEzMC4wLjY3MjMuNzEiXSxbIkdvb2dsZSBDaHJvbWUiLCIxMzAuMC42NzIzLjcxIl0sWyJOb3Q_QV9CcmFuZCIsIjk5LjAuMC4wIl1dLDBd&dt=1730342265209&bpp=3&bdt=2026&idt=3&shv=r20241028&mjsv=m202410240101&ptt=9&saldr=aa&abxe=1&cookie=ID%3D8277f1eeaac8ad34%3AT%3D1728875034%3ART%3D1730342263%3AS%3DALNI_MZWT7j6BqHta0RmGTS8ydOOJciv-g&gpic=UID%3D00000f411bb31bcf%3AT%3D1728875034%3ART%3D1730342263%3AS%3DALNI_MabyUIvDmYaXxKBwCCKtiHsaAHOTg&eo_id_str=ID%3D4a6aa6c74ef440fe%3AT%3D1728875034%3ART%3D1730342263%3AS%3DAA-AfjahR9hqVh1LnDvZzIILGbBd&prev_fmts=0x0%2C1200x280%2C1137x280%2C1104x280&nras=4&correlator=2681676133590&frm=20&pv=1&u_tz=420&u_his=1&u_h=864&u_w=1536&u_ah=816&u_aw=1536&u_cd=24&u_sd=1.25&dmc=8&adx=294&ady=1575&biw=1519&bih=730&scr_x=0&scr_y=0&eid=44759876%2C44759927%2C95346097%2C31087700%2C95343682%2C95344187%2C95335245%2C95345788%2C95345963%2C95340253%2C95340255&oid=2&pvsid=365046477173155&tmod=57439636&uas=0&nvt=1&ref=https%3A%2F%2Fvn.search.yahoo.com%2F&fc=1408&brdim=0%2C0%2C0%2C0%2C1536%2C0%2C1536%2C816%2C1536%2C730&vis=1&rsz=%7C%7Cs%7C&abl=NS&fu=128&bc=31&bz=1&td=1&tdf=2&psd=W251bGwsbnVsbCxudWxsLDNd&nt=1&ifi=5&uci=a!5&btvi=2&fsb=1&dtd=23" data-google-container-id="a!5" tabindex="0" title="Advertisement" aria-label="Advertisement" data-google-query-id="CL7095_Lt4kDFTTIFgUdXHYhDg" data-load-complete="true"></iframe></div></ins></div> 
+        <p>Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua.</p> 
+       </div>  -->
+      </div> 
+      <div class="item next left"> <img src="../img/banner4.jpg" alt="Thiết kế 2" width="100%" height="100px"> 
+       <!-- <div class="carousel-caption"> 
+        <h1>Thiết kế 2</h1> 
+        <p>Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua.</p> 
+       </div>  -->
+      </div> 
+      <div class="item"> <img src="../img/BANNER3.png" alt="Thiết kế 3" width="100%" height="100px"> 
+       <!-- <div class="carousel-caption"> 
+        <h1>Thiết kế 3</h1> 
+        <p>Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua.</p> 
+       </div>  -->
+      </div> 
+     </div> <a class="left carousel-control" href="http://hocwebgiare.com/#myCarousel" data-slide="prev"> <span class="glyphicon glyphicon-chevron-left"></span> </a> <a class="right carousel-control" href="http://hocwebgiare.com/#myCarousel" data-slide="next"> <span class="glyphicon glyphicon-chevron-right"></span> </a> 
+    </div> 
+   </div>
+    <div class="container">
+        <div class="row text-center">
+            <div class="col-sm-4">
+                <div class="product">
+                    <a href="../html/minolta1.html" class="img-container"><img src="../img/fim1.jpg" alt="minolta" width="200px" height="180px" /></a><br /><br />
+                    <p>
+                        <a href="../html/minolta1.html">Máy MiNolta </a>
+                    </p>
+                    <p style="color: #c4b22a;">Giá: 14.000.000 VND</p>
+                    <p class="giagoc">15.900.000 VND</p>
+
+                    <button data-toggle="modal" data-target="#buyModal" data-unit-price="40000" data-product-name="Máy MiNolta" onclick="setProductInfo('Máy MiNolta', 14000000)">Mua ngay</button>
+
+                    <a class="a1" onclick="giohang()"><i class="fas fa-shopping-cart"></i></a>
+                </div>
+            </div>
+            <div class="col-sm-4">
+                <div class="product">
+                    <a href="../html/Olypus1.html" class="img-container"><img src="../img/fim2.jpg" alt="Máy Ảnh Oympus" width="200px" height="180px" /></a><br /><br />
+                    <p>
+                        <a href="../html/Olypus1.html">Máy Ảnh Oympus</a>
+                    </p>
+                    <p></p>
+                    <p style="color: #c4b22a;">Giá: 14.000.000 VND</p>
+                    <p class="giagoc">
+                        15.900.000 VND
+                    </p>
+                    <!-- Cập nhật nút "Mua ngay" trong mỗi sản phẩm -->
+                    <button data-toggle="modal" data-target="#buyModal" data-unit-price="40000" data-product-name="Máy Ảnh Oympus" onclick="setProductInfo('Máy Ảnh Oympus', 14000000)">Mua ngay</button>
+
+                    <a class="a1" onclick="giohang()"><i class="fas fa-shopping-cart"></i></a>
+                </div>
+            </div>
+            <div class="col-sm-4">
+                <div class="product">
+                    <a href="../html/minolta2.html" class="img-container"><img src="../img/fim5.jpg" alt="Khoai tây" width="200px" height="180px" /></a><br /><br />
+                    <p style="font-size: 16px">
+                        <a href="../html/minolta2.html"> Máy ảnh MINOLTA </a>
+                    </p>
+                    <p></p>
+                    <p style="color: #c4b22a;">Giá: 15.500.000 VND</p>
+                    <p class="giagoc">
+                        16.500.000 VND
+                    </p>
+                    <!-- Cập nhật nút "Mua ngay" trong mỗi sản phẩm -->
+                    <button data-toggle="modal" data-target="#buyModal" data-unit-price="55000" data-product-name="Máy ảnh MINOLTA" onclick="setProductInfo('Máy ảnh MINOLTA', 15500000)">Mua ngay</button>
+
+                    <a class="a1" onclick="giohang()"><i class="fas fa-shopping-cart"></i></a>
+                </div>
+            </div>
+        </div>
+        <div class="row text-center">
+            <div class="col-sm-4">
+                <div class="product">
+                    <a href="../html/fujifim1.html" class="img-container"><img src="../img/fim4.jpg" alt="Máy Niko" width="200px" height="180px" /></a><br /><br />
+                    <p style="font-size: 16px"><a href="../html/fujifim1.html"></a> Máy ảnh NiKo</p>
+                    <p></p>
+                    <p style="color: #c4b22a;">Giá: 5.900.000 VND</p>
+                    <p class="giagoc">
+                        7.000.000 VND
+                    </p>
+                    <!-- Cập nhật nút "Mua ngay" trong mỗi sản phẩm -->
+                    <button data-toggle="modal" data-target="#buyModal" data-unit-price="59000" data-product-name="Máy ảnh NiKo" onclick="setProductInfo('Máy ảnh NiKo', 5900000)">Mua ngay</button>
+
+                    <a class="a1" onclick="giohang()"><i class="fas fa-shopping-cart"></i></a>
+                </div>
+            </div>
+            <div class="col-sm-4">
+                <div class="product">
+                    <a href="../html/fim1.html" class="img-container"><img src="../img/fim7.jpg" alt="Rong biển" width="200px" height="180px" /></a><br /><br />
+                    <p style="font-size: 16px">
+                        <a href="../html/fim1.html">Máy Rollel 35S</a>
+                    </p>
+                    <p></p>
+                    <p style="color: #c4b22a;">Giá: 7.000.000 VND</p>
+                    <p class="giagoc">
+                        55.000 VND
+                    </p>
+                    <!-- Cập nhật nút "Mua ngay" trong mỗi sản phẩm -->
+                    <button data-toggle="modal" data-target="#buyModal" data-unit-price="7000000" data-product-name="Máy Rollel 35S" onclick="setProductInfo('Máy Rollel 35S', 7000000)">Mua ngay</button>
+
+                    <a class="a1" onclick="giohang()"><i class="fas fa-shopping-cart"></i></a>
+                </div>
+            </div>
+            <div class="col-sm-4">
+                <div class="product">
+                    <a href="../html/fim2.html" class="img-container"><img src="../img/fim3.jpg" alt="Máy NIKO" width="200px" height="180px" /></a><br /><br />
+                    <p style="font-size: 16px">
+                        <a href="../html/fim2.html">Máy NIKO</a>
+                    </p>
+                    <p></p>
+                    <p style="color: #c4b22a;">Giá: 12.000.000 VND</p>
+                    <p class="giagoc">
+                        150.000 VND
+                    </p>
+                    <!-- Cập nhật nút "Mua ngay" trong mỗi sản phẩm -->
+                    <button data-toggle="modal" data-target="#buyModal" data-unit-price="12000000" data-product-name="Máy NIKO" onclick="setProductInfo('Máy NIKO', 12000000)">Mua ngay</button>
+
+                    <a class="a1" onclick="giohang()"><i class="fas fa-shopping-cart"></i></a>
+                </div>
+            </div>
+        </div>
+
+    </div>
+    <div class="modal fade" id="buyModal" tabindex="-1" role="dialog" aria-labelledby="buyModalLabel" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 id="buyModalLabel">Số lượng sản phẩm</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+            </button>
+                </div>
+                <div class="modal-body">
+                    <form>
+                        <div class="form-group">
+                            <label for="quantity">Số lượng:</label>
+                            <input type="number" class="form-control" id="quantity" placeholder="Nhập số lượng" />
+                        </div>
+                        <div class="form-group">
+                            <label for="unitPrice">Đơn giá:</label>
+                            <span id="unitPrice"></span>
+                        </div>
+                    </form>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">
+              Đóng
+            </button>
+                    <button type="button" class="btn btn-primary" id="confirmPurchase" onclick="confirmPurchase()">
+              Xác nhận mua
+            </button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="modal fade" id="buyModal" tabindex="-1" role="dialog" aria-labelledby="buyModalLabel" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h3 class="modal-title" id="buyModalLabel"></h3>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+              </button>
+                </div>
+                <div class="modal-body">
+                    <form>
+                        <div class="form-group">
+                            <label for="quantity">Số lượng:</label>
+                            <input type="number" class="form-control" id="quantity" placeholder="Nhập số lượng" />
+                        </div>
+                        <!-- Thêm các trường khác tùy ý -->
+                    </form>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">
+                Đóng
+              </button>
+                    <button type="button" class="btn btn-primary" id="confirmPurchase">
+                Xác nhận mua
+              </button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="container-fluid">
+        <div class="row" style="height: 234px; background-color: #444">
+            <div id="sub1" class="col-sm-5">
+                <h1>SUBSCRIBE TO US!</h1>
+                <p>
+                    Enter Your email address for our mailing list to keep yourself update.
+                </p>
+            </div>
+            <div id="sub2" class="col-sm-4">
+                <input class="form-control" type="email" id="sub" placeholder="Nhập thông tin đăng kí" />
+            </div>
+            <div id="sub3" class="col-sm-3">
+                <button class="form-control" onclick="subcrise()">SUBSCRIBE ME</button>
+            </div>
+        </div>
+        <div class="row" style="padding-top: 30px; background-color: #333; color: #cfcbcb">
+            <div id="lastF1" class="col-sm-4">
+                <h4>ABOUT</h4>
+                <p>
+                    Cửa hàng chuyên cung cấp những sản phẩm gia dụng được kiểm soát chặt chẽ từ quá trình chọn nguyên liệu, sản xuất, đóng gói, đến vận chuyển, nhằm đảm bảo chất lượng và sự an toàn tốt nhất cho khách hàng.
+                </p>
+                </p>
+            </div>
+            <div id="lastF2" class="col-sm-3">
+                <h4>CONTACT</h4>
+                <i class="fas fa-map-marker-alt"></i>
+                <p style="position: relative; left: 25px; top: -24px">
+                    Bà Nà Hills, Hòa Vang, TP.Đà Nẵng
+                </p>
+                <i class="fas fa-phone" style="position: relative; top: -25px"></i>
+                <p style="position: relative; left: 25px; top: -44px">
+                    (03) 97744510
+                </p>
+                <i class="fas fa-envelope" style="position: relative; top: -45px"></i>
+                <p style="position: relative; left: 25px; top: -66px">
+                    web.dogiadung@gmail.com
+                </p>
+            </div>
+            <div id="lastF3" class="col-sm-2">
+                <h4>PRODUCT</h4>
+                <ul>
+                    <li><a href="../../index.html">Trang chủ</a></li>
+                    <li><a href="../html/gioithieu.html">Giới thệu</a></li>
+                    <li><a href="../html/mayxaydanang.html">Sản phẩm</a></li>
+                    <li><a href="../html/contact.html">Liên hệ</a></li>
+                </ul>
+            </div>
+            <div id="lastF4" class="col-sm-3">
+                <h4>TIME</h4>
+                <p>Monday to Friday:</p>
+                <p>08:00am - 20:00pm</p>
+                <p>Saturday & Sunday:</p>
+                <p>10:00am - 16:00pm</p>
+            </div>
+        </div>
+        <div class="row">
+            <div id="foot" class="col-sm-12">
+                <p>&copy; 2023 Web Đồ Gia Dụng Store</p>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>

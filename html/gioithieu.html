@@ -1,0 +1,543 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="../css/bootstrap.min.css" />
+    <script type="text/javascript" src="../js/jquery-3.6.0.min.js"></script>
+    <script type="text/javascript" src="../js/bootstrap.min.js"></script>
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.0/css/all.css" />
+    <script src="../js/dangky.js"></script>
+    <link rel="stylesheet" href="../css/all.css" />
+    <title>Giới Thiệu</title>
+    <style>
+        .container {
+            max-width: 1200px;
+            margin: 20px auto;
+            padding: 30px;
+            background-color: #e0dfdf;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            color: #444;
+        }
+        
+        #sub1 {
+            text-align: left;
+            padding-left: 170px;
+            padding-top: 70px;
+            color: #fff;
+        }
+        
+        #sub2 {
+            padding-top: 95px;
+        }
+        
+        #sub2>input {
+            border-radius: 0px;
+            background-color: #fff;
+            height: 40px;
+        }
+        
+        #sub3 {
+            padding-top: 95px;
+        }
+        
+        #sub3>button {
+            border-radius: 0px;
+            background-color: #0c0c0b;
+            position: relative;
+            color: white;
+            left: -31px;
+            border: none;
+            height: 40px;
+            width: 140px;
+        }
+        
+        #sub3>button:hover {
+            background-color: #c4b22a;
+        }
+        
+        #lastF1 {
+            padding-left: 170px;
+        }
+        
+        #lastF1>p {
+            text-align: justify;
+        }
+        
+        h4 {
+            border-bottom: 1px solid white;
+            padding-bottom: 5px;
+            margin-bottom: 20px;
+            width: 30px;
+        }
+        
+        #lastF2 {
+            padding-left: 45px;
+        }
+        
+        #lastF2>i {
+            color: #c4b22a;
+        }
+        
+        #lastF3>ul>li {
+            list-style-type: none;
+            margin-left: -40px;
+        }
+        
+        #lastF3>ul>li>a {
+            color: #cfcbcb;
+            text-decoration: none;
+        }
+        
+        #lastF3>ul>li>a:hover {
+            color: #c4b22a;
+        }
+        
+        #foot {
+            background-color: #333;
+            color: #fff;
+            border-top: 1px solid black;
+            text-align: center;
+        }
+        
+        #foot>p {
+            color: #fff;
+            margin-top: 12px;
+            width: 100%;
+        }
+    </style>
+</head>
+ <body class="tong" >
+  <div class="header" style="background-color: #cfcbcb;">
+    <div class="container-fluid">
+        <div class="row" style="background-color: #414545;">
+            <div id="nav" class="col-sm-6">
+                <ul>
+                  <li><img src="../img/Black White Illustrative Modern Camera Studio Icon Logo.png" alt="" height="40px" width="40px"></li>
+                    <li>
+                        <a href="../html/index.html" style="margin-left: 150px">TRANG CHỦ</a
+              >
+            </li>
+            <li>
+              <a href="../html/gioithieu.html">GIỚI THIỆU</a>
+                    </li>
+                    <li class="dropdown">
+                        <a class="dropdown-toggle" data-toggle="dropdown" href="#">SẢN PHẨM<span class="caret"></span
+              ></a>
+                        <ul class="dropdown-menu">
+                            <li><a href="../html/maykithuatso.html">Máy Kĩ Thuật Số</a></li>
+                            <li><a href="../html/mayfim.html">Máy fim</a></li>
+                            <li><a href="../html/mayanhchuplayngay.html">Máy Ảnh Chụp Lấy Ngay</a></li>
+                        </ul>
+                    </li>
+                    <li>
+                        <a href="../html/contact.html">LIÊN HỆ</a>
+                    </li>
+                </ul>
+            </div>
+            <div id="nav1" class="col-sm-4">
+                <input type="text" class="form-control" placeholder="Search........................." />
+                <a href="#"><i class="fas fa-search"></i></a>
+            </div>
+            <div id="nav3" class="col-sm-2">
+                <a href="#"><i class="fas fa-shopping-cart" style="color: #c4b22a" onclick="Giohang()" data-toggle="modal" data-target="#cartModal">Giỏ hàng</i
+                    ></a>
+    <a href="#" data-toggle="modal" data-target="#registerModal">Register</a>
+              <a href="#" data-toggle="modal" data-target="#loginModal">Login</a>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- Register Modal -->
+      <div class="modal fade" id="registerModal" tabindex="-1" role="dialog" aria-labelledby="registerModalLabel" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title" id="registerModalLabel" style="color: #c4b22a">Đăng Ký Tài Khoản</h5>
+              <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+            </div>
+            <div class="modal-body">
+              <form>
+                <div class="form-group">
+                  <label for="username">Tên người dùng:</label>
+                  <input type="text" class="form-control" id="username" placeholder="Nhập tên người dùng">
+                </div>
+                <div class="form-group">
+                  <label for="email">Email:</label>
+                  <input type="email" class="form-control" id="email" placeholder="Email">
+                </div>
+                <div class="form-group">
+                  <label for="password">Mật khẩu:</label>
+                  <input type="password" class="form-control" id="password" placeholder="Nhập mật khẩu">
+                </div>
+              </form>
+            </div>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-primary" onclick="register()">Đăng Ký</button>
+              <button type="button" class="btn btn-secondary" data-dismiss="modal">Đóng</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    
+      <!-- Login Modal -->
+      <div class="modal fade" id="loginModal" tabindex="-1" role="dialog" aria-labelledby="loginModalLabel" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title" id="loginModalLabel" style="color: #c4b22a">Đăng Nhập</h5>
+              <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+            </div>
+            <div class="modal-body">
+              <form>
+                <div class="form-group">
+                  <label for="login-username">Tên đăng nhập:</label>
+                  <input type="text" class="form-control" id="login-username" placeholder="Nhập tên người dùng">
+                </div>
+                <div class="form-group">
+                  <label for="login-password">Mật khẩu:</label>
+                  <input type="password" class="form-control" id="login-password" placeholder="Nhập mật khẩu">
+                </div>
+              </form>
+            </div>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-primary" onclick="login()">Đăng Nhập</button>
+              <button type="button" class="btn btn-secondary" data-dismiss="modal">Đóng</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    
+      <!-- JavaScript for Cart, Registration, and Login -->
+      <script>
+        // Display Cart Items in Cart Modal
+        function displayCart() {
+          const cartItemsContainer = document.getElementById('cartItems');
+          const cartTotalElement = document.getElementById('cartTotal');
+          const cart = JSON.parse(localStorage.getItem('cart')) || [];
+          
+          if (cart.length === 0) {
+            cartItemsContainer.innerHTML = 'Your cart is empty.';
+            cartTotalElement.innerHTML = 'Tổng: 0 VND';
+            return;
+          }
+    
+          let total = 0;
+          cartItemsContainer.innerHTML = '';
+          cart.forEach(item => {
+            total += item.price * item.quantity;
+            cartItemsContainer.innerHTML += `<p><strong>${item.name}</strong>: ${item.quantity} x ${item.price} VND</p>`;
+          });
+    
+          cartTotalElement.innerHTML = `Tổng: ${total} VND`;
+        }
+    
+        // Register function
+        function register() {
+          const username = document.getElementById('username').value;
+          const email = document.getElementById('email').value;
+          const password = document.getElementById('password').value;
+          
+          if (username && email && password) {
+            localStorage.setItem('user', JSON.stringify({ username, email, password }));
+            alert('Đăng ký thành công!');
+            $('#registerModal').modal('hide');
+            window.location.href = "../html/index.html";
+          } else {
+            alert('Vui lòng nhập đầy đủ thông tin.');
+          }
+        }
+    
+        // Login function
+        function login() {
+          const loginUsername = document.getElementById('login-username').value;
+          const loginPassword = document.getElementById('login-password').value;
+          const registeredUser = JSON.parse(localStorage.getItem('user'));
+    
+          if (registeredUser && registeredUser.username === loginUsername && registeredUser.password === loginPassword) {
+            alert('Đăng nhập thành công!');
+            $('#loginModal').modal('hide');
+            window.location.href = "../html/index.html";
+          } else {
+            alert('Sai tên đăng nhập hoặc mật khẩu.');
+          }
+        }
+      </script>
+      <!-- Cart Modal -->
+<div class="modal fade" id="cartModal" tabindex="-1" role="dialog" aria-labelledby="cartModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+      <div class="modal-content">
+          <div class="modal-header">
+              <h5 class="modal-title" id="cartModalLabel">Giỏ hàng của bạn</h5>
+              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                  <span aria-hidden="true">&times;</span>
+              </button>
+          </div>
+          <div class="modal-body">
+              <ul id="cartItems" class="list-group">
+                  <!-- Cart items will be added here dynamically -->
+              </ul>
+          </div>
+          <div class="modal-footer">
+              <button type="button" class="btn btn-secondary" data-dismiss="modal">Đóng</button>
+              <button type="button" class="btn btn-primary">Thanh toán</button>
+          </div>
+      </div>
+  </div>
+</div>
+
+<!-- JavaScript -->
+<script>
+// Initialize cart from localStorage or create an empty one
+let cart = JSON.parse(localStorage.getItem('cart')) || [];
+
+// Function to update the cart modal with current items
+function updateCartModal() {
+  const cartItemsList = document.getElementById('cartItems');
+  cartItemsList.innerHTML = ''; // Clear previous items
+
+  // Add each item in the cart to the modal list
+  cart.forEach((item, index) => {
+      const listItem = document.createElement('li');
+      listItem.className = 'list-group-item d-flex justify-content-between align-items-center';
+      listItem.innerHTML = `
+          ${item.name} - ${item.price.toLocaleString()} VND x ${item.quantity}
+          <button class="btn btn-danger btn-sm" onclick="removeFromCart(${index})">Xóa</button>
+      `;
+      cartItemsList.appendChild(listItem);
+  });
+}
+
+// Function to add an item to the cart
+function themVaoGioHang() {
+  const productName = "Máy kĩ thuật số X-AS";
+  const productPrice = 6000000;
+  const quantity = parseInt(document.getElementById('soluong').value);
+
+  // Check if the item already exists in the cart
+  const existingItem = cart.find(item => item.name === productName);
+  if (existingItem) {
+      existingItem.quantity += quantity;
+  } else {
+      // Add new item to the cart
+      cart.push({ name: productName, price: productPrice, quantity: quantity });
+  }
+
+  // Save cart to localStorage
+  localStorage.setItem('cart', JSON.stringify(cart));
+
+  // Update the cart modal
+  updateCartModal();
+}
+
+// Function to remove an item from the cart
+function removeFromCart(index) {
+  cart.splice(index, 1);
+  localStorage.setItem('cart', JSON.stringify(cart));
+  updateCartModal();
+}
+
+// Update the cart modal with current items when the page loads
+document.addEventListener('DOMContentLoaded', updateCartModal);
+</script>
+
+    <div class="container">
+        <div class="contact-info">
+            <div class="row">
+                <div class="col-sm-12">
+                    <h1 style="font-size: 50px">Giới thiệu chung</h1>
+                    <p style="font-size: 16px">
+                        &nbsp&nbsp&nbsp&nbsp&nbsp Chào mừng bạn đến với
+                        <a href="../html/index.html" style="color: #c4b22a; text-decoration: none">"Camera Store"</a
+              >
+               -Nơi mang đến những trải nghiệm chất lượng cho người đam mê nhiếp ảnh và không gian sống hiện đại. Tại Camera Store, chúng tôi không chỉ cung cấp các sản phẩm máy ảnh đơn thuần, mà còn là những “tác phẩm nghệ thuật” từ thiết kế đến chất liệu, được tuyển chọn kỹ lưỡng từ các thương hiệu nổi tiếng trên thế giới. Từng sản phẩm không chỉ tiện ích mà còn thể hiện phong cách sống đẳng cấp, tạo điểm nhấn tinh tế cho bạn và gia đình.
+            </p>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-sm-1"></div>
+          <div class="col-sm-6" style="padding-top: 40px">
+            <ul>
+              <li>
+                <p style="font-size: 17px">
+                  <b> Cam kết về Chất lượng và Dịch vụ chuyên nghiệp</b>
+                </p>
+              </li>
+              <p style="font-size: 16px; text-align: justify">
+                Đặt chất lượng lên hàng đầu, Camera Store luôn mang đến cho khách hàng những sản phẩm tốt nhất. Đội ngũ nhân viên giàu kinh nghiệm của chúng tôi luôn sẵn lòng tư vấn để bạn dễ dàng tìm được chiếc máy ảnh ưng ý, phù hợp với nhu cầu sử dụng và phong cách cá nhân.
+              </p>
+            </ul>
+          </div>
+          <div class="col-sm-5">
+            <img
+              src="../img/banner3.jpg"
+              alt=""
+              width="350px"
+              style="border-radius: 10px"
+            />
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-sm-4">
+            <img
+              src="../img/banner4.jpg"
+              alt=""
+              width="400px"
+              style="border-radius: 10px"
+            />
+          </div>
+          <div class="col-sm-8" style="padding: 60px 40px 0 40px">
+            <ul>
+              <li>
+                <p style="font-size: 17px">
+                  <b>Tận tâm thấu hiểu khách hàng</b>
+                </p>
+              </li>
+              <p style="font-size: 16px; text-align: justify">
+                Chúng tôi hiểu rằng mỗi khách hàng đều có những yêu cầu và phong cách riêng biệt. Vì thế, Camera Store luôn sẵn sàng lắng nghe và hỗ trợ, nhằm mang lại sự hài lòng tối đa trong từng sản phẩm và trải nghiệm mua sắm.
+
+              </p>
+            </ul>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-sm-8" style="padding-top: 30px">
+            <ul>
+              <li>
+                <p style="font-size: 17px">
+                  <b>Trải nghiệm không gian mua sắm đẳng cấp</b>
+                </p>
+              </li>
+              <p style="font-size: 16px; text-align: justify">
+                Hãy đến với Camera Store để cảm nhận không gian mua sắm chuyên nghiệp và thoải mái, nơi mọi khách hàng đều được phục vụ chu đáo và tận tâm. Camera Store không chỉ là nơi mua sắm, mà còn là điểm đến dành cho những ai yêu thích nhiếp ảnh và phong cách sống hiện đại.
+              </p>
+            </ul>
+          </div>
+          <div class="col-sm-4">
+            <img
+              src="../img/BANNER3.png"
+              alt=""
+              width="300px"
+              style="border-radius: 10px"
+            />
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-sm-12">
+            <ul>
+              <li>
+                <p style="font-size: 17px">
+                  <b>Hãy đến với cửa hàng của chúng tôi:</b>
+                </p>
+              </li>
+              <p style="font-size: 16px; text-align: justify">
+                Hãy đến với cửa hàng của chúng tôi để trải nghiệm không gian mua sắm thoải mái và chuyên nghiệp nhất. Chúng tôi cam kết mang lại sự hài lòng cao nhất cho quý khách hàng. Xin chân thành cảm ơn!
+              </p>
+            </ul>
+          </div>
+        </div>
+        <div class="row" style="margin-top: 30px">
+          <div class="col-sm-12">
+            <p style="font-size: 16px">
+              <a
+                href="../html/index.html"
+                style="color: #c4b22a; text-decoration: none"
+                >"Camera Store"</a
+              >
+              chúng tôi không chỉ là điểm đến để mua sắm, mà còn là mái nhà của sự đam mê với máy ảnh . Hãy cùng chúng tôi trải nghiệm hành trình khám phá thế giới của những chiếc máy ảnh thông minh, giúp tạo ra một môi trường sống tiện nghi và đầy ý nghĩa cho bạn và gia đình!"
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- footer -->
+    <div class="container-fluid">
+      <div class="row" style="height: 234px; background-color: #444">
+          <div id="sub1" class="col-sm-5">
+              <h1>ĐĂNG KÝ VỚI CHÚNG TÔI!</h1>
+              <p>
+                  Nhập địa chỉ email của bạn vào danh sách gửi thư để chúng tôi để nhận tin tức mới nhất.
+              </p>
+          </div>
+          <div id="sub2" class="col-sm-4">
+              <input class="form-control" type="email" id="sub" placeholder="Nhập thông tin đăng kí" />
+          </div>
+          <div id="sub3" class="col-sm-3">
+              <button class="form-control" onclick="subcrise()">Đăng Ký Ngay </button>
+          </div>
+      </div>
+      <div class="row" style="padding-top: 30px; background-color: #333; color: #cfcbcb">
+          <div id="lastF1" class="col-sm-4">
+              <h4>Đăng Kí</h4>
+              <p>
+
+                  Cửa hàng chuyên cung cấp những sản phẩm máy ảnh xịn sò, xinh xắn và đa dạng.Với nhiwwuf phân khúc giá cả vừa  đảm bảo chất lượng và hài lòng nhất cho khách hàng.
+              </p>
+          </div>
+          <div id="lastF2" class="col-sm-3">
+              <h4>Liên Hệ </h4>
+              <i class="fas fa-map-marker-alt"></i>
+              <p style="position: relative; left: 25px; top: -24px">
+                  Quang Trung, Gò Vấp, Tp.Hồ Chí Minh
+              </p>
+              <i class="fas fa-phone" style="position: relative; top: -25px"></i>
+              <p style="position: relative; left: 25px; top: -44px">
+                  (03) 58713373
+              </p>
+              <i class="fas fa-envelope" style="position: relative; top: -45px"></i>
+              <p style="position: relative; left: 25px; top: -66px">
+                  web.Mayanhxin@gmail.com
+              </p>
+          </div>
+          <div id="lastF3" class="col-sm-2">
+              <h4>Sản Phẩm</h4>
+              <ul>
+                  <li><a href="../../index.html">Trang chủ</a></li>
+                  <li><a href="../html/gioithieu.html">Giới thệu</a></li>
+                  <li><a href="../html/Cacloainoi.html">Sản phẩm</a></li>
+                  <li><a href="../html/contact.html">Liên hệ</a></li>
+              </ul>
+          </div>
+          <div id="lastF4" class="col-sm-3">
+              <h4> Thời Gian </h4>
+              <p>THứ 2 đến Thứ 6:</p>
+              <p>08:00am - 20:00pm</p>
+              <p>THứ 7 và Chủ nhật:</p>
+              <p>10:00am - 16:00pm</p>
+          </div>
+      </div>
+      <div class="row">
+          <div id="foot" class="col-sm-12">
+              <p>&copy; 2024 Web Máy Ảnh Xịn Store</p>
+          </div>
+      </div>
+  </div>
+      
+   
+    <!-- Modal -->
+    <div class="modal fade" id="buyModal" tabindex="-1" role="dialog" aria-labelledby="buyModalLabel" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="buyModalLabel">Xác nhận đặt hàng</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+                </div>
+                <div class="modal-body">
+
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Hủy</button>
+                    <button type="button" class="btn btn-primary">Xác nhận mua hàng</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</body>
+
+</html>

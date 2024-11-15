@@ -1,0 +1,44 @@
+#thongtin{
+    background-color: rgb(233, 231, 231);
+    height: 360px;
+    margin-top: 20px;
+    border-radius: 10px;
+    padding: 20px;
+    margin-bottom: 20px;
+}
+#thongtin h1{
+    font-size: 30px;
+    text-align: center;
+    font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    letter-spacing: 2px;
+    background-color: #c4b22a;
+    padding: 10px ;
+    border-radius: 10px;
+}
+#thongtin p{
+    font-weight: bolder;
+    font-size: 17px;
+}
+#thongtin p span{
+    font-size: 15px;
+    
+}
+#thanhtoan{
+    margin-left: -100px;
+}
+.tt{
+    border: 1px solid black;
+    border-radius: 5px;
+    padding: 10px 20px;
+    margin-top: 10px;
+    background-color: #444;
+    color: aliceblue;
+    font-weight: bold;
+    border: none;
+  }
+  .tt:hover{
+    background-color:#c4b22a;
+    color: #444;
+    border: none;
+
+  }

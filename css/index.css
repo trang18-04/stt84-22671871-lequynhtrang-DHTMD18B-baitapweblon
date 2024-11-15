@@ -1,0 +1,182 @@
+
+  #slide i:first-child {
+    position: absolute;
+    top: 50%;
+    left: 30px;
+    color: rgb(242, 236, 236);
+    font-size: 40px;
+  }
+  #slide {
+    margin-top: 40px;
+    position: relative;
+
+  }
+  #slide img {
+    height: 550px;
+    width: 1050px;
+    border-radius: 10px;
+  }
+  #slide i:last-child {
+    position: absolute;
+    top: 50%;
+    right: 30px;
+    color: white;
+    font-size: 40px;
+  }
+  .container {
+    margin: 20px auto;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+  }
+
+  .product {
+    width: 265px;
+    margin-left: -15px;
+    margin: 10px;
+    background-color: #444;
+    border: 1px solid #ccc;
+    flex: 0 0 calc(30% - 40px);
+    border-radius: 11px;
+    color: white;
+  }
+  .product p {
+    padding-left: 15px;
+    line-height: 13px;
+  }
+  .product a.img-container {
+    position: relative;
+    display: block;
+    overflow: hidden;
+    border-radius: 10px 10px 0px 0px;
+}
+
+.product a.img-container img {
+    width: 100%;
+    transition: transform 0.3s ease-in-out;
+}
+
+.product a.img-container:hover img {
+    transform: scale(1.3);
+}
+  .product p > a {
+    color: white;
+    text-decoration: none;
+    font-weight:bold;
+  }
+  .product p > a:hover {
+    color: #c4b22a;
+    
+  }
+  .product button {
+    background-color: #ccc;
+    color: #333;
+    border: none;
+    border-radius: 5px;
+    margin: 0px 0px 15px 15px;
+    padding: 5px 10px 5px 10px;
+  }
+  .product button:hover {
+    background-color: #c4b22a;
+  }
+  .a1{
+    margin-left: 50px;
+
+}
+.a1>i{
+    background-color: #9f9d9d;
+    color:#444;
+    font-size: 20px;
+    padding: 10px 10px 9px 8px;
+    border-radius: 25px;
+}
+.a1>i:hover{
+    background-color: #fff;
+    color: #c4b22a;
+}
+  .img {
+    width: 100%;
+    border-radius: 10px 10px 40px 0px;
+  }
+  #them{
+    margin-bottom: 15px;
+    margin-left: 10px;
+  }
+  #them>a{
+    color:#444;
+    padding: 7px ;
+    font-weight: bold;
+  }
+  #them>a:hover{
+    color: #c4b22a;
+  }
+  #sub1 {
+    text-align: left;
+    padding-left: 170px;
+    padding-top: 70px;
+    color: #fff;
+  }
+  #sub2 {
+    padding-top: 95px;
+  }
+  #sub2 > input {
+    border-radius: 0px;
+    background-color: #fff;
+    height: 40px;
+  }
+  #sub3 {
+    padding-top: 95px;
+  }
+  #sub3 > button {
+    border-radius: 0px;
+    background-color: #0c0c0b;
+    position: relative;
+    color: white;
+    left: -31px;
+    border: none;
+    height: 40px;
+    width: 140px;
+  }
+  #sub3 > button:hover {
+    background-color: #c4b22a;
+  }
+  #lastF1 {
+    padding-left: 170px;
+  }
+  #lastF1 > p {
+    text-align: justify;
+  }
+  h4 {
+    border-bottom: 1px solid white;
+    padding-bottom: 5px;
+    margin-bottom: 20px;
+    width: 30px;
+  }
+  #lastF2 {
+    padding-left: 45px;
+  }
+  #lastF2 > i {
+    color: #c4b22a;
+  }
+  #lastF3 > ul > li {
+    list-style-type: none;
+    margin-left: -40px;
+  }
+  #lastF3 > ul > li > a {
+    color: #cfcbcb;
+    text-decoration: none;
+  }
+  #lastF3 > ul > li > a:hover {
+    color: #c4b22a;
+  }
+  #foot {
+    background-color: #333;
+    color: #fff;
+    border-top: 1px solid black;
+    text-align: center;
+  }
+  #foot > p {
+    color: #fff;
+    margin-top: 12px;
+    width: 100%;
+  }

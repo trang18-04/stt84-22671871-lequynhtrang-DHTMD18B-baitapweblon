@@ -1,0 +1,139 @@
+.container{
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+    background-color: #fff;
+    margin-top: 30px;
+    padding: 35px ;
+    border-radius: 15px;
+    margin-bottom: 20px;
+}
+img{
+    border-radius: 15px;
+}
+.h4{
+    letter-spacing: 1px;
+    font-weight: bold;
+} 
+.col-sm-5 a{
+    color: rgb(217, 217, 16);
+    text-decoration: none;
+}
+.col-sm-5 button{
+    padding: 10px 15px 10px 15px;
+    margin-right: 15px;
+    border-radius: 5px;
+    border: none;
+    background-color: #bcb9b9;
+    font-weight: bold;
+}
+.col-sm-5 button:hover{
+    color: #c4b22a;
+    background-color: #444;
+}
+table{
+    height: 300px;
+    width: 600px;
+}
+table tr td a{
+    color: #444;
+    
+}
+table tr td a:hover{
+    color: #c4b22a;
+    text-decoration: none;
+}
+h5{
+    font-weight: bold;
+    font-size: 13px;
+    letter-spacing: 1px;
+}
+#mota p{
+    padding-left: 15px;
+}
+#container {
+    margin: 20px auto;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+  }
+
+.product {
+    width: 265px;
+    margin-left: -6px;
+    background-color: #444;
+    border: 1px solid #ccc;
+    flex: 0 0 calc(30% - 40px);
+    border-radius: 11px;
+    color: white;
+  }
+  .product p {
+    padding-left: 15px;
+    line-height: 13px;
+  }
+  .product a.img-container {
+    position: relative;
+    display: block;
+    overflow: hidden;
+    border-radius: 10px 10px 0px 0px;
+}
+
+.product a.img-container img {
+    width: 100%;
+    transition: transform 0.3s ease-in-out;
+}
+
+.product a.img-container:hover img {
+    transform: scale(1.3);
+}
+  .product p > a {
+    color: white;
+    text-decoration: none;
+    font-weight:bold;
+  }
+  .product p > a:hover {
+    color: #c4b22a;
+    
+  }
+  .product button {
+    background-color: #ccc;
+    color: #333;
+    border: none;
+    border-radius: 5px;
+    margin: 0px 0px 15px 15px;
+    padding: 5px 10px 5px 10px;
+  }
+  .product button:hover {
+    background-color: #c4b22a;
+  }
+  .a1{
+    margin-left: 100px;
+
+}
+.a1>i{
+    background-color: #9f9d9d;
+    color:#444;
+    font-size: 20px;
+    padding: 10px 10px 9px 8px;
+    border-radius: 25px;
+}
+.a1>i:hover{
+    background-color: #fff;
+    color: #c4b22a;
+}
+  .img {
+    width: 100%;
+    border-radius: 10px 10px 40px 0px;
+  }
+  #them{
+    margin-bottom: 15px;
+    margin-left: 10px;
+  }
+  #them>a{
+    color:#444;
+    padding: 7px ;
+    font-weight: bold;
+  }
+  #them>a:hover{
+    color: #c4b22a;
+  }
+
+
